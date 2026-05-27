@@ -1,0 +1,16 @@
+# Godot editor/cache files
+.godot/
+
+# Godot export output
+build/
+*.tmp
+
+# Python cache/tooling output
+__pycache__/
+*.py[cod]
+
+# Local editor settings
+.vscode/
+
+# Generated/test outputs from local asset experiments
+tools/asset_pipeline/output_test/

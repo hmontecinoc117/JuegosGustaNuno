@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://gamescene001"]
+
+[ext_resource type="Script" path="res://scenes/game/GameScene.gd" id="1_game_script"]
+
+[node name="GameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_game_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.976471, 0.756863, 0.219608, 1)
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 48
+
+[node name="Content" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="LevelLabel" type="Label" parent="SafeArea/Content"]
+layout_mode = 2
+text = "Nivel de prueba"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 44
+
+[node name="BackButton" type="Button" parent="SafeArea/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volver al menu"
+theme_override_font_sizes/font_size = 24

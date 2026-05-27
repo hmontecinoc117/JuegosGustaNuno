@@ -1,0 +1,172 @@
+[gd_scene load_steps=6 format=3 uid="uid://memorycard001"]
+
+[ext_resource type="Script" path="res://scripts/game/MemoryCard.gd" id="1_card_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_back"]
+bg_color = Color(0.52, 0.66, 0.96, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.9)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.11, 0.2, 0.32, 0.24)
+shadow_size = 10
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_front"]
+bg_color = Color(1, 0.97, 0.79, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.95)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.24, 0.17, 0.08, 0.22)
+shadow_size = 10
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_success"]
+bg_color = Color(0.72, 0.93, 0.58, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.95)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.13, 0.3, 0.09, 0.23)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_wrong"]
+bg_color = Color(1, 0.58, 0.52, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.9)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_badge"]
+bg_color = Color(1, 1, 1, 0.32)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MemoryCard" type="Button"]
+custom_minimum_size = Vector2(115, 145)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_card_back")
+theme_override_styles/hover = SubResource("StyleBoxFlat_card_back")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_card_back")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_card_back")
+script = ExtResource("1_card_script")
+
+[node name="BackFace" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_back")
+
+[node name="BackTexture" type="TextureRect" parent="BackFace"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackCenter" type="CenterContainer" parent="BackFace"]
+visible = false
+layout_mode = 2
+
+[node name="BackBadge" type="PanelContainer" parent="BackFace/BackCenter"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_badge")
+
+[node name="BackLabel" type="Label" parent="BackFace/BackCenter/BackBadge"]
+layout_mode = 2
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+
+[node name="FrontFace" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_front")
+
+[node name="FrontTexture" type="TextureRect" parent="FrontFace"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FrontMargin" type="MarginContainer" parent="FrontFace"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="CardBox" type="VBoxContainer" parent="FrontFace/FrontMargin"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AnimalSprite" type="TextureRect" parent="FrontFace/FrontMargin/CardBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(118, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimalLabel" type="Label" parent="FrontFace/FrontMargin/CardBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Animal"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.22, 0.25, 0.32, 1)
+theme_override_font_sizes/font_size = 14

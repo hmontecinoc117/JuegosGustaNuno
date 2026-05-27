@@ -1,0 +1,564 @@
+[gd_scene load_steps=10 format=3 uid="uid://memorygame001"]
+
+[ext_resource type="Script" path="res://scripts/game/MemoryGame.gd" id="1_memory_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_top_panel"]
+bg_color = Color(1, 0.98, 0.88, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.76)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.14, 0.18, 0.24, 0.16)
+shadow_size = 8
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_orange"]
+bg_color = Color(1, 0.68, 0.22, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.84)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.34, 0.18, 0.06, 0.24)
+shadow_size = 9
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat"]
+bg_color = Color(1, 1, 1, 0.72)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.86)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0.12, 0.16, 0.22, 0.13)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_board"]
+bg_color = Color(1, 0.98, 0.9, 0.64)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.72)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0.08, 0.13, 0.2, 0.28)
+shadow_size = 24
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_star_panel"]
+bg_color = Color(0.42, 0.72, 0.95, 0.9)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.78)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+shadow_color = Color(0.08, 0.18, 0.28, 0.22)
+shadow_size = 14
+shadow_offset = Vector2(0, 7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feedback"]
+bg_color = Color(1, 1, 1, 0.95)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0.13, 0.19, 0.25, 0.22)
+shadow_size = 12
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_victory"]
+bg_color = Color(1, 0.96, 0.75, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 0.92)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0.12, 0.12, 0.12, 0.3)
+shadow_size = 20
+shadow_offset = Vector2(0, 9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mane"]
+bg_color = Color(0.75, 0.38, 0.12, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_face"]
+bg_color = Color(1, 0.7, 0.28, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.78, 0.42, 0.1, 1)
+corner_radius_top_left = 72
+corner_radius_top_right = 72
+corner_radius_bottom_right = 72
+corner_radius_bottom_left = 72
+
+[node name="MemoryGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_memory_script")
+
+[node name="Sky" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.55, 0.84, 0.95, 1)
+
+[node name="BackHills" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -230.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.74, 0.9, 0.58, 1)
+
+[node name="Ground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.52, 0.8, 0.45, 1)
+
+[node name="CloudStrip" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 26.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_constants/separation = 140
+alignment = 1
+
+[node name="CloudA" type="Label" parent="CloudStrip"]
+layout_mode = 2
+text = "nube"
+theme_override_colors/font_color = Color(1, 1, 1, 0.58)
+theme_override_font_sizes/font_size = 30
+
+[node name="CloudB" type="Label" parent="CloudStrip"]
+layout_mode = 2
+text = "nube"
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+theme_override_font_sizes/font_size = 28
+
+[node name="CloudC" type="Label" parent="CloudStrip"]
+layout_mode = 2
+text = "nube"
+theme_override_colors/font_color = Color(1, 1, 1, 0.62)
+theme_override_font_sizes/font_size = 32
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="RootBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="TopPanel" type="PanelContainer" parent="SafeArea/RootBox"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_top_panel")
+
+[node name="TopMargin" type="MarginContainer" parent="SafeArea/RootBox/TopPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 8
+
+[node name="Header" type="HBoxContainer" parent="SafeArea/RootBox/TopPanel/TopMargin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="BackButton" type="Button" parent="SafeArea/RootBox/TopPanel/TopMargin/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(205, 64)
+layout_mode = 2
+focus_mode = 0
+text = "<  Menu"
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_orange")
+
+[node name="TitleLabel" type="Label" parent="SafeArea/RootBox/TopPanel/TopMargin/Header"]
+custom_minimum_size = Vector2(480, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MEMORICE INFANTIL"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.02, 0.44, 0.5, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.65)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 34
+
+[node name="RestartButton" type="Button" parent="SafeArea/RootBox/TopPanel/TopMargin/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(235, 64)
+layout_mode = 2
+focus_mode = 0
+text = "*  Reiniciar"
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_orange")
+
+[node name="GameLayout" type="HBoxContainer" parent="SafeArea/RootBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="BoardPanel" type="PanelContainer" parent="SafeArea/RootBox/GameLayout"]
+custom_minimum_size = Vector2(852, 504)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_board")
+
+[node name="BoardMargin" type="MarginContainer" parent="SafeArea/RootBox/GameLayout/BoardPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 12
+
+[node name="CardGrid" type="GridContainer" parent="SafeArea/RootBox/GameLayout/BoardPanel/BoardMargin"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(812, 480)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 5
+
+[node name="SidePanel" type="VBoxContainer" parent="SafeArea/RootBox/GameLayout"]
+custom_minimum_size = Vector2(218, 504)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StatsBox" type="VBoxContainer" parent="SafeArea/RootBox/GameLayout/SidePanel"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="AttemptsBox" type="PanelContainer" parent="SafeArea/RootBox/GameLayout/SidePanel/StatsBox"]
+custom_minimum_size = Vector2(218, 58)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stat")
+
+[node name="AttemptsLabel" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StatsBox/AttemptsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Intentos: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="PairsBox" type="PanelContainer" parent="SafeArea/RootBox/GameLayout/SidePanel/StatsBox"]
+custom_minimum_size = Vector2(218, 58)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stat")
+
+[node name="PairsLabel" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StatsBox/PairsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pares: 0/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="BestBox" type="PanelContainer" parent="SafeArea/RootBox/GameLayout/SidePanel/StatsBox"]
+custom_minimum_size = Vector2(218, 58)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stat")
+
+[node name="BestLabel" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StatsBox/BestBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mejor: --"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="StarPanel" type="PanelContainer" parent="SafeArea/RootBox/GameLayout/SidePanel"]
+custom_minimum_size = Vector2(218, 190)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_star_panel")
+
+[node name="StarMargin" type="MarginContainer" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="StarBox" type="VBoxContainer" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="StarTitle" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin/StarBox"]
+layout_mode = 2
+text = "Estrellas"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="StarRow" type="HBoxContainer" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin/StarBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="StarA" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin/StarBox/StarRow"]
+layout_mode = 2
+text = "*"
+theme_override_colors/font_color = Color(1, 0.85, 0.22, 1)
+theme_override_font_sizes/font_size = 42
+
+[node name="StarB" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin/StarBox/StarRow"]
+layout_mode = 2
+text = "*"
+theme_override_colors/font_color = Color(1, 0.85, 0.22, 1)
+theme_override_font_sizes/font_size = 42
+
+[node name="StarC" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin/StarBox/StarRow"]
+layout_mode = 2
+text = "*"
+theme_override_colors/font_color = Color(1, 0.85, 0.22, 1)
+theme_override_font_sizes/font_size = 42
+
+[node name="StarHint" type="Label" parent="SafeArea/RootBox/GameLayout/SidePanel/StarPanel/StarMargin/StarBox"]
+layout_mode = 2
+text = "Pares encontrados"
+horizontal_alignment = 1
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.16, 0.24, 0.36, 1)
+theme_override_font_sizes/font_size = 14
+
+[node name="FeedbackLayer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 74.0
+offset_bottom = 126.0
+grow_horizontal = 2
+
+[node name="FeedbackPanel" type="PanelContainer" parent="FeedbackLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(330, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_feedback")
+
+[node name="FeedbackLabel" type="Label" parent="FeedbackLayer/FeedbackPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mensaje"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.18, 0.24, 0.32, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="VictoryOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.14, 0.18, 0.52)
+
+[node name="VictoryCenter" type="CenterContainer" parent="VictoryOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryPanel" type="PanelContainer" parent="VictoryOverlay/VictoryCenter"]
+custom_minimum_size = Vector2(700, 430)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_victory")
+
+[node name="VictoryMargin" type="MarginContainer" parent="VictoryOverlay/VictoryCenter/VictoryPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 24
+
+[node name="VictoryLayout" type="HBoxContainer" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="VictoryMascot" type="Control" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout"]
+custom_minimum_size = Vector2(190, 330)
+layout_mode = 2
+
+[node name="VictoryMane" type="PanelContainer" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryMascot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.06
+anchor_right = 0.92
+anchor_bottom = 0.58
+theme_override_styles/panel = SubResource("StyleBoxFlat_mane")
+
+[node name="VictoryFace" type="PanelContainer" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryMascot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22
+anchor_top = 0.17
+anchor_right = 0.78
+anchor_bottom = 0.48
+theme_override_styles/panel = SubResource("StyleBoxFlat_face")
+
+[node name="VictoryFaceText" type="Label" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryMascot/VictoryFace"]
+layout_mode = 2
+text = "o o\n w"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.17, 0.12, 0.1, 1)
+theme_override_font_sizes/font_size = 26
+
+[node name="VictoryMascotLabel" type="Label" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryMascot"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Leon celebra"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="VictoryBox" type="VBoxContainer" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="VictoryMessage" type="Label" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NIVEL COMPLETADO"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.25, 0.33, 0.5, 1)
+theme_override_font_sizes/font_size = 42
+
+[node name="VictoryStars" type="Label" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox"]
+layout_mode = 2
+text = "*  *  *"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.72, 0.1, 1)
+theme_override_font_sizes/font_size = 46
+
+[node name="VictoryAttemptsLabel" type="Label" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Intentos: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="VictoryBestLabel" type="Label" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mejor resultado: --"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="VictoryButtons" type="HBoxContainer" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="VictoryRestartButton" type="Button" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox/VictoryButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 58)
+layout_mode = 2
+focus_mode = 0
+text = "Reintentar"
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_orange")
+
+[node name="VictoryNextButton" type="Button" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox/VictoryButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 58)
+layout_mode = 2
+focus_mode = 0
+text = "Siguiente"
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_orange")
+
+[node name="VictoryMenuButton" type="Button" parent="VictoryOverlay/VictoryCenter/VictoryPanel/VictoryMargin/VictoryLayout/VictoryBox/VictoryButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 58)
+layout_mode = 2
+focus_mode = 0
+text = "Mapa"
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_orange")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_orange")

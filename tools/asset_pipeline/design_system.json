@@ -1,0 +1,36 @@
+{
+  "style_name": "JuegoInfantilPremiumKids",
+  "theme": "forest_memory_game",
+  "visual_language": {
+    "shape_language": "large rounded corners",
+    "depth": "soft tactile",
+    "finish": "glossy premium",
+    "shadow_style": "soft ambient",
+    "contrast": "clean and readable",
+    "character_style": "cute cartoon premium"
+  },
+  "palette": {
+    "primary_turquoise": "#25C6D8",
+    "primary_sky": "#69B8FF",
+    "cream": "#FFF3D8",
+    "soft_gold": "#F5C24A",
+    "forest_green": "#71C97B",
+    "warm_orange": "#FFA539",
+    "danger_red": "#F26C5B",
+    "neutral_gray": "#C9CED7"
+  },
+  "radius": {
+    "button": 42,
+    "panel": 48,
+    "card": 38
+  },
+  "shadow": {
+    "blur": 32,
+    "opacity": 0.18,
+    "offset_y": 12
+  },
+  "gloss": {
+    "enabled": true,
+    "strength": 0.16
+  }
+}

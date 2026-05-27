@@ -1,0 +1,337 @@
+[gd_scene load_steps=9 format=3 uid="uid://mainmenu001"]
+
+[ext_resource type="Script" path="res://scenes/ui/MainMenu.gd" id="1_menu_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_logo"]
+bg_color = Color(1, 0.95, 0.66, 0.96)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.78)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.24, 0.18, 0.1, 0.22)
+shadow_size = 18
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_play"]
+bg_color = Color(1, 0.67, 0.2, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.82)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.34, 0.18, 0.05, 0.24)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_profile"]
+bg_color = Color(0.45, 0.78, 0.96, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.82)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.08, 0.21, 0.32, 0.22)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_options"]
+bg_color = Color(0.62, 0.84, 0.5, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.82)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.12, 0.27, 0.1, 0.22)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_exit"]
+bg_color = Color(0.96, 0.51, 0.5, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.82)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.33, 0.09, 0.09, 0.22)
+shadow_size = 12
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mascot_body"]
+bg_color = Color(1, 0.7, 0.28, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.78, 0.42, 0.1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+shadow_color = Color(0.3, 0.18, 0.08, 0.22)
+shadow_size = 14
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mane"]
+bg_color = Color(0.75, 0.38, 0.12, 1)
+corner_radius_top_left = 110
+corner_radius_top_right = 110
+corner_radius_bottom_right = 110
+corner_radius_bottom_left = 110
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu_script")
+
+[node name="Sky" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.57, 0.84, 0.95, 1)
+
+[node name="SoftClouds" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 38.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="CloudA" type="Label" parent="SoftClouds"]
+layout_mode = 2
+text = "nube"
+theme_override_colors/font_color = Color(1, 1, 1, 0.65)
+theme_override_font_sizes/font_size = 36
+
+[node name="CloudB" type="Label" parent="SoftClouds"]
+layout_mode = 2
+text = "nube"
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+theme_override_font_sizes/font_size = 30
+
+[node name="CloudC" type="Label" parent="SoftClouds"]
+layout_mode = 2
+text = "nube"
+theme_override_colors/font_color = Color(1, 1, 1, 0.6)
+theme_override_font_sizes/font_size = 34
+
+[node name="HillsBack" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -220.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.65, 0.88, 0.56, 1)
+
+[node name="Ground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.48, 0.78, 0.42, 1)
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 54
+theme_override_constants/margin_top = 38
+theme_override_constants/margin_right = 54
+theme_override_constants/margin_bottom = 36
+
+[node name="MainLayout" type="HBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="MascotZone" type="CenterContainer" parent="SafeArea/MainLayout"]
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MascotStack" type="Control" parent="SafeArea/MainLayout/MascotZone"]
+custom_minimum_size = Vector2(360, 420)
+layout_mode = 2
+
+[node name="Mane" type="PanelContainer" parent="SafeArea/MainLayout/MascotZone/MascotStack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.05
+anchor_right = 0.88
+anchor_bottom = 0.71
+theme_override_styles/panel = SubResource("StyleBoxFlat_mane")
+
+[node name="Face" type="PanelContainer" parent="SafeArea/MainLayout/MascotZone/MascotStack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22
+anchor_top = 0.16
+anchor_right = 0.78
+anchor_bottom = 0.62
+theme_override_styles/panel = SubResource("StyleBoxFlat_mascot_body")
+
+[node name="FaceContent" type="VBoxContainer" parent="SafeArea/MainLayout/MascotZone/MascotStack/Face"]
+layout_mode = 2
+alignment = 1
+
+[node name="Eyes" type="Label" parent="SafeArea/MainLayout/MascotZone/MascotStack/Face/FaceContent"]
+layout_mode = 2
+text = "o   o"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.17, 0.12, 0.1, 1)
+theme_override_font_sizes/font_size = 34
+
+[node name="Smile" type="Label" parent="SafeArea/MainLayout/MascotZone/MascotStack/Face/FaceContent"]
+layout_mode = 2
+text = "w"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.17, 0.12, 0.1, 1)
+theme_override_font_sizes/font_size = 40
+
+[node name="MascotName" type="Label" parent="SafeArea/MainLayout/MascotZone/MascotStack"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Leon guia"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.33, 0.23, 0.16, 1)
+theme_override_font_sizes/font_size = 32
+
+[node name="MenuZone" type="CenterContainer" parent="SafeArea/MainLayout"]
+custom_minimum_size = Vector2(530, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuBox" type="VBoxContainer" parent="SafeArea/MainLayout/MenuZone"]
+custom_minimum_size = Vector2(500, 560)
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="LogoPanel" type="PanelContainer" parent="SafeArea/MainLayout/MenuZone/MenuBox"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_logo")
+
+[node name="LogoMargin" type="MarginContainer" parent="SafeArea/MainLayout/MenuZone/MenuBox/LogoPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="LogoText" type="VBoxContainer" parent="SafeArea/MainLayout/MenuZone/MenuBox/LogoPanel/LogoMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="SafeArea/MainLayout/MenuZone/MenuBox/LogoPanel/LogoMargin/LogoText"]
+layout_mode = 2
+text = "MEMORICE"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.26, 0.35, 0.54, 1)
+theme_override_font_sizes/font_size = 54
+
+[node name="SubtitleLabel" type="Label" parent="SafeArea/MainLayout/MenuZone/MenuBox/LogoPanel/LogoMargin/LogoText"]
+layout_mode = 2
+text = "INFANTIL"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.96, 0.45, 0.22, 1)
+theme_override_font_sizes/font_size = 34
+
+[node name="MessageLabel" type="Label" parent="SafeArea/MainLayout/MenuZone/MenuBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Elige una aventura"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.23, 0.29, 0.38, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="PlayButton" type="Button" parent="SafeArea/MainLayout/MenuZone/MenuBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 72)
+layout_mode = 2
+focus_mode = 0
+text = ">  Jugar"
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_play")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_play")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_play")
+
+[node name="ProfileButton" type="Button" parent="SafeArea/MainLayout/MenuZone/MenuBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 72)
+layout_mode = 2
+focus_mode = 0
+text = "@  Perfil"
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_profile")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_profile")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_profile")
+
+[node name="OptionsButton" type="Button" parent="SafeArea/MainLayout/MenuZone/MenuBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 72)
+layout_mode = 2
+focus_mode = 0
+text = "*  Opciones"
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_options")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_options")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_options")
+
+[node name="ExitButton" type="Button" parent="SafeArea/MainLayout/MenuZone/MenuBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 72)
+layout_mode = 2
+focus_mode = 0
+text = "x  Salir"
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_exit")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_exit")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_exit")
