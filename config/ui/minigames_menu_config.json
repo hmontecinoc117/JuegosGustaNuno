@@ -31,8 +31,7 @@
   },
   "header": {
     "enabled": true,
-    "height": 190,
-    "layout": "top_bar_centered_title",
+    "height": 210,
     "back_button": {
       "enabled": true,
       "text": "Volver",
@@ -41,8 +40,8 @@
       "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
       "position": "top_left",
       "size": {
-        "width": 240,
-        "height": 82
+        "width": 250,
+        "height": 90
       },
       "action": {
         "type": "change_scene",
@@ -55,26 +54,35 @@
       "texture_path": "res://assets/ui/logo/logo_gustanuno_main.png",
       "position": "top_center",
       "size": {
-        "width": 420,
+        "width": 430,
         "height": 130
+      }
+    },
+    "title_board": {
+      "enabled": true,
+      "texture_path": "res://assets/ui/panels/panel_logo.png",
+      "fallback_texture": "res://assets/ui/panels/panel_board_premium.png",
+      "size": {
+        "width": 760,
+        "height": 110
       }
     },
     "title": {
       "enabled": true,
       "text": "Minijuegos",
-      "font_size": 64,
+      "font_size": 66,
       "color": "#FFFFFF",
       "outline_color": "#1F4B82",
-      "outline_size": 8,
-      "position": "center_below_logo"
+      "outline_size": 8
     },
     "subtitle": {
       "enabled": true,
       "text": "Elige un juego",
-      "font_size": 30,
+      "font_size": 28,
       "color": "#4A2F1B",
       "outline_color": "#FFF1C2",
-      "outline_size": 3
+      "outline_size": 3,
+      "panel_texture": "res://assets/ui/panels/panel_message.png"
     },
     "top_right_widgets": {
       "enabled": true,
@@ -84,7 +92,7 @@
           "type": "counter",
           "icon_path": "res://assets/ui/icons/icon_star_coin.png",
           "text_source": "save.player_coins",
-          "fallback_text": "0",
+          "fallback_text": "1250",
           "button_texture": "res://assets/ui/panels/panel_stats_premium.png",
           "position_order": 1
         },
@@ -138,47 +146,39 @@
       "on_game_selected": {
         "reaction": "celebrating",
         "animation": "happy_jump"
-      },
-      "on_reward_claimed": {
-        "reaction": "celebrating",
-        "animation": "happy_jump"
       }
     }
   },
   "catalog_panel": {
-    "enabled": true,
+    "enabled": false,
     "position": "center",
     "size": {
       "width": 1120,
       "height": 620
     },
     "style": {
-      "type": "stylebox",
-      "background_color": "#FFF4C8",
-      "background_alpha": 0.88,
-      "border_color": "#17A8C8",
-      "border_width": 6,
-      "corner_radius": 32,
-      "shadow_color": "#000000",
-      "shadow_alpha": 0.22,
-      "shadow_size": 16
+      "type": "transparent"
     }
   },
   "grid": {
     "columns": 3,
     "rows": 2,
     "items_per_page": 6,
-    "horizontal_gap": 28,
-    "vertical_gap": 24,
+    "horizontal_gap": 22,
+    "vertical_gap": 18,
     "card_size": {
-      "width": 300,
-      "height": 230
+      "width": 330,
+      "height": 210
+    },
+    "position": {
+      "x": 430,
+      "y": 345
     },
     "padding": {
-      "top": 28,
-      "bottom": 24,
-      "left": 34,
-      "right": 34
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
     }
   },
   "pagination": {
@@ -199,19 +199,19 @@
     "left": {
       "texture_path": "res://assets/ui/icons/arrow_left_blue.png",
       "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
-      "position": "left_center_of_catalog",
+      "position": "left_center_of_grid",
       "size": {
-        "width": 78,
-        "height": 78
+        "width": 84,
+        "height": 84
       }
     },
     "right": {
       "texture_path": "res://assets/ui/icons/arrow_right_blue.png",
       "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
-      "position": "right_center_of_catalog",
+      "position": "right_center_of_grid",
       "size": {
-        "width": 78,
-        "height": 78
+        "width": 84,
+        "height": 84
       }
     },
     "disabled_alpha": 0.35
@@ -227,7 +227,12 @@
         "shadow_alpha": 0.24,
         "shadow_size": 12
       },
-      "title_color": "#24466D",
+      "title_ribbon": {
+        "enabled": true,
+        "texture_path": "res://assets/ui/panels/minigames/ribbon_blue.png",
+        "fallback_color": "#146CB5"
+      },
+      "title_color": "#FFFFFF",
       "subtitle_color": "#24466D",
       "status_color": "#05843A",
       "thumbnail_alpha": 1.0,
@@ -236,29 +241,36 @@
         "texture": "res://assets/ui/buttons/button_secondary_green.png",
         "fallback_color": "#20B957",
         "text_color": "#FFFFFF",
-        "disabled": false
+        "disabled": false,
+        "visible": true
       }
     },
     "coming_soon": {
       "panel_texture": "res://assets/ui/panels/minigames/panel_card_minigame_disabled.png",
       "fallback_style": {
-        "background_color": "#DDD4B8",
-        "border_color": "#B89A58",
+        "background_color": "#F2DBA7",
+        "border_color": "#D69A36",
         "border_width": 4,
         "corner_radius": 26,
         "shadow_alpha": 0.14,
         "shadow_size": 8
       },
-      "title_color": "#24466D",
-      "subtitle_color": "#24466D",
+      "title_ribbon": {
+        "enabled": true,
+        "texture_path": "res://assets/ui/panels/minigames/ribbon_gray_blue.png",
+        "fallback_color": "#60788B"
+      },
+      "title_color": "#FFFFFF",
+      "subtitle_color": "#8A5B28",
       "status_color": "#9A5A12",
       "thumbnail_alpha": 0.55,
       "button": {
-        "text": "Pronto",
-        "texture": "res://assets/ui/buttons/button_disabled_gray.png",
+        "text": "",
+        "texture": "",
         "fallback_color": "#8E9AA3",
         "text_color": "#FFFFFF",
-        "disabled": true
+        "disabled": true,
+        "visible": false
       }
     },
     "locked": {
@@ -271,7 +283,12 @@
         "shadow_alpha": 0.12,
         "shadow_size": 8
       },
-      "title_color": "#34495E",
+      "title_ribbon": {
+        "enabled": true,
+        "texture_path": "res://assets/ui/panels/minigames/ribbon_gray_blue.png",
+        "fallback_color": "#60788B"
+      },
+      "title_color": "#FFFFFF",
       "subtitle_color": "#5D6D7E",
       "status_color": "#7B2E2E",
       "thumbnail_alpha": 0.45,
@@ -280,7 +297,8 @@
         "texture": "res://assets/ui/buttons/button_disabled_gray.png",
         "fallback_color": "#7F8C8D",
         "text_color": "#FFFFFF",
-        "disabled": true
+        "disabled": true,
+        "visible": true
       }
     }
   },
@@ -292,10 +310,7 @@
     "return_from_games": {
       "target_scene_path": "res://scenes/ui/MiniGamesMenu.tscn",
       "target_constant": "SCENE_MINIGAMES_MENU",
-      "required_for": [
-        "MemoryGame",
-        "PuzzleGame"
-      ]
+      "required_for": ["MemoryGame", "PuzzleGame"]
     },
     "back_from_menu": {
       "target_scene_path": "res://scenes/ui/MainMenu.tscn",
@@ -329,12 +344,5 @@
       "animation": "button_pop",
       "character_reaction": "celebrating"
     }
-  },
-  "audio": {
-    "enabled": true,
-    "on_button_pressed": "res://assets/audio/sfx/button_click.ogg",
-    "on_card_focus": "res://assets/audio/sfx/card_hover.ogg",
-    "on_coming_soon": "res://assets/audio/sfx/soft_error.ogg",
-    "fallback_if_missing": true
   }
 }

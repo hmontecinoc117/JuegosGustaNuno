@@ -41,114 +41,151 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 34
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 34
-theme_override_constants/margin_bottom = 14
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
 
 [node name="RootLayout" type="VBoxContainer" parent="SafeArea"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 4
 
 [node name="HeaderPanel" type="PanelContainer" parent="SafeArea/RootLayout"]
-custom_minimum_size = Vector2(0, 128)
+custom_minimum_size = Vector2(0, 210)
 layout_mode = 2
 
-[node name="HeaderMargin" type="MarginContainer" parent="SafeArea/RootLayout/HeaderPanel"]
+[node name="HeaderCanvas" type="Control" parent="SafeArea/RootLayout/HeaderPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 6
+mouse_filter = 2
 
-[node name="HeaderRow" type="HBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 1
-
-[node name="BackButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow"]
+[node name="BackButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(156, 54)
-layout_mode = 2
+custom_minimum_size = Vector2(250, 90)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 0.0
+offset_top = 6.0
+offset_right = 250.0
+offset_bottom = 96.0
 focus_mode = 0
 text = "Volver"
 
-[node name="TitleBox" type="VBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
+[node name="CenterTitle" type="VBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas"]
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 0.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_constants/separation = -5
 alignment = 1
 
-[node name="LogoRect" type="TextureRect" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/TitleBox"]
+[node name="LogoRect" type="TextureRect" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(356, 58)
+custom_minimum_size = Vector2(430, 96)
 layout_mode = 2
 size_flags_horizontal = 4
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TitleLabel" type="Label" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/TitleBox"]
+[node name="TitleBoard" type="PanelContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(760, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TitleLabel" type="Label" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle/TitleBoard"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Minijuegos"
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.02, 0.44, 0.5, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.78)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.06, 0.16, 0.28, 0.48)
 theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 32
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 54
 
-[node name="SubtitleLabel" type="Label" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/TitleBox"]
+[node name="SubtitlePanel" type="PanelContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SubtitleLabel" type="Label" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle/SubtitlePanel"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Elige un juego"
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.22, 0.32, 0.44, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.29, 0.18, 0.11, 1)
+theme_override_font_sizes/font_size = 24
 
-[node name="HeaderActions" type="HBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow"]
-custom_minimum_size = Vector2(156, 54)
-layout_mode = 2
-theme_override_constants/separation = 8
+[node name="HeaderActions" type="HBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(314, 74)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -314.0
+offset_top = 8.0
+offset_right = 0.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
 alignment = 2
 
-[node name="ProfileButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/HeaderActions"]
+[node name="CoinsButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/HeaderActions"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 54)
+custom_minimum_size = Vector2(160, 62)
+layout_mode = 2
+focus_mode = 0
+text = "1250"
+
+[node name="ProfileButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/HeaderActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 focus_mode = 0
 
-[node name="OptionsButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/HeaderActions"]
+[node name="OptionsButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/HeaderActions"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 54)
+custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 focus_mode = 0
 
 [node name="ContentRow" type="HBoxContainer" parent="SafeArea/RootLayout"]
+custom_minimum_size = Vector2(0, 454)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 12
+theme_override_constants/separation = 18
 alignment = 1
 
 [node name="PreviousButton" type="Button" parent="SafeArea/RootLayout/ContentRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(66, 126)
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 text = "<"
 
 [node name="GridPanel" type="PanelContainer" parent="SafeArea/RootLayout/ContentRow"]
+custom_minimum_size = Vector2(1066, 438)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="GridMargin" type="MarginContainer" parent="SafeArea/RootLayout/ContentRow/GridPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 18
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 18
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="CardGrid" type="GridContainer" parent="SafeArea/RootLayout/ContentRow/GridPanel/GridMargin"]
 unique_name_in_owner = true
@@ -156,26 +193,26 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 12
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 18
 
 [node name="NextButton" type="Button" parent="SafeArea/RootLayout/ContentRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(66, 126)
+custom_minimum_size = Vector2(84, 84)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 text = ">"
 
 [node name="Footer" type="HBoxContainer" parent="SafeArea/RootLayout"]
-custom_minimum_size = Vector2(0, 38)
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="PageLabel" type="Label" parent="SafeArea/RootLayout/Footer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 34)
+custom_minimum_size = Vector2(90, 36)
 layout_mode = 2
 text = "1 / 3"
 horizontal_alignment = 1
@@ -189,7 +226,7 @@ theme_override_font_sizes/font_size = 22
 [node name="DotsBox" type="HBoxContainer" parent="SafeArea/RootLayout/Footer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="PirateHolder" type="Control" parent="."]
@@ -198,10 +235,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = -142.0
-offset_right = 134.0
-offset_bottom = -10.0
+offset_left = 28.0
+offset_top = -245.0
+offset_right = 210.0
+offset_bottom = -18.0
 grow_vertical = 0
 mouse_filter = 2
 
@@ -209,8 +246,8 @@ mouse_filter = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 154.0
-offset_bottom = 220.0
+offset_top = 220.0
+offset_bottom = 286.0
 grow_horizontal = 2
 mouse_filter = 2
 

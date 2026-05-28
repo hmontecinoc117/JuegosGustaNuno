@@ -9,9 +9,12 @@ const DEFAULT_BUTTON_DISABLED: Texture2D = preload("res://assets/ui/buttons/butt
 const DEFAULT_LOGO: Texture2D = preload("res://assets/ui/logo/logo_gustanuno_main.png")
 
 @onready var back_button: Button = %BackButton
+@onready var coins_button: Button = %CoinsButton
 @onready var profile_button: Button = %ProfileButton
 @onready var options_button: Button = %OptionsButton
 @onready var logo_rect: TextureRect = %LogoRect
+@onready var title_board: PanelContainer = %TitleBoard
+@onready var subtitle_panel: PanelContainer = %SubtitlePanel
 @onready var card_grid: GridContainer = %CardGrid
 @onready var previous_button: Button = %PreviousButton
 @onready var next_button: Button = %NextButton
@@ -25,8 +28,9 @@ const DEFAULT_LOGO: Texture2D = preload("res://assets/ui/logo/logo_gustanuno_mai
 @onready var safe_area: MarginContainer = $SafeArea
 @onready var header_panel: PanelContainer = $SafeArea/RootLayout/HeaderPanel
 @onready var grid_margin: MarginContainer = $SafeArea/RootLayout/ContentRow/GridPanel/GridMargin
-@onready var title_label: Label = $SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/TitleBox/TitleLabel
-@onready var subtitle_label: Label = $SafeArea/RootLayout/HeaderPanel/HeaderMargin/HeaderRow/TitleBox/SubtitleLabel
+@onready var grid_panel: PanelContainer = $SafeArea/RootLayout/ContentRow/GridPanel
+@onready var title_label: Label = %TitleLabel
+@onready var subtitle_label: Label = %SubtitleLabel
 
 var menu_config: Dictionary = {}
 var catalog_config: Dictionary = {}
@@ -88,7 +92,7 @@ func apply_screen_config() -> void:
 	safe_area.add_theme_constant_override("margin_bottom", int(screen.get("safe_margin_bottom", 24)))
 
 	var header: Dictionary = menu_config.get("header", {})
-	header_panel.custom_minimum_size.y = float(header.get("height", 190))
+	header_panel.custom_minimum_size = Vector2(header_panel.custom_minimum_size.x, float(header.get("height", 190)))
 
 	var grid: Dictionary = menu_config.get("grid", {})
 	games_per_page = int(grid.get("items_per_page", catalog_config.get("items_per_page_default", 6)))
@@ -97,6 +101,10 @@ func apply_screen_config() -> void:
 	card_grid.add_theme_constant_override("v_separation", int(grid.get("vertical_gap", 24)))
 	var configured_card_size: Dictionary = grid.get("card_size", {})
 	card_size = Vector2(float(configured_card_size.get("width", 300)), float(configured_card_size.get("height", 230)))
+	var rows := int(grid.get("rows", 2))
+	var grid_width := (card_size.x * float(card_grid.columns)) + (float(card_grid.columns - 1) * float(grid.get("horizontal_gap", 28)))
+	var grid_height := (card_size.y * float(rows)) + (float(rows - 1) * float(grid.get("vertical_gap", 24)))
+	grid_panel.custom_minimum_size = Vector2(grid_width, grid_height)
 	var padding: Dictionary = grid.get("padding", {})
 	grid_margin.add_theme_constant_override("margin_left", int(padding.get("left", 34)))
 	grid_margin.add_theme_constant_override("margin_top", int(padding.get("top", 28)))
@@ -130,7 +138,24 @@ func build_header() -> void:
 	if logo_rect.texture == null:
 		logo_rect.texture = DEFAULT_LOGO
 	var logo_size: Dictionary = logo.get("size", {})
-	logo_rect.custom_minimum_size = Vector2(float(logo_size.get("width", 420)), float(logo_size.get("height", 130)))
+	logo_rect.custom_minimum_size = Vector2(float(logo_size.get("width", 420)), float(logo_size.get("height", 110)))
+
+	var title_board_config: Dictionary = header.get("title_board", {})
+	var title_board_size: Dictionary = title_board_config.get("size", {})
+	title_board.custom_minimum_size = Vector2(
+		float(title_board_size.get("width", 760)),
+		float(title_board_size.get("height", 92))
+	)
+	apply_panel_texture_or_style(title_board, String(title_board_config.get("texture_path", "")), String(title_board_config.get("fallback_texture", "")), {
+		"background_color": "#126CB2",
+		"background_alpha": 0.96,
+		"border_color": "#C77B20",
+		"border_width": 5,
+		"corner_radius": 26,
+		"shadow_color": "#000000",
+		"shadow_alpha": 0.22,
+		"shadow_size": 8
+	})
 
 	var title: Dictionary = header.get("title", {})
 	title_label.text = String(title.get("text", "Minijuegos"))
@@ -140,6 +165,16 @@ func build_header() -> void:
 	title_label.add_theme_constant_override("outline_size", int(title.get("outline_size", 8)))
 
 	var subtitle: Dictionary = header.get("subtitle", {})
+	apply_panel_texture_or_style(subtitle_panel, String(subtitle.get("panel_texture", "")), "", {
+		"background_color": "#F7D99A",
+		"background_alpha": 0.96,
+		"border_color": "#B97523",
+		"border_width": 2,
+		"corner_radius": 8,
+		"shadow_color": "#000000",
+		"shadow_alpha": 0.12,
+		"shadow_size": 3
+	})
 	subtitle_label.text = String(subtitle.get("text", "Elige un juego"))
 	subtitle_label.add_theme_font_size_override("font_size", int(subtitle.get("font_size", 30)))
 	subtitle_label.add_theme_color_override("font_color", ConfigResolver.color_from_hex(String(subtitle.get("color", "#4A2F1B"))))
@@ -152,10 +187,33 @@ func build_header() -> void:
 	back_button.custom_minimum_size = Vector2(float(back_size.get("width", 240)), float(back_size.get("height", 82)))
 	apply_button_style(back_button, String(back_config.get("button_texture", "")), String(back_config.get("fallback_texture", "res://assets/ui/buttons/button_secondary_blue.png")))
 
-	profile_button.icon = ConfigResolver.load_texture("res://assets/ui/icons/icon_profile.png")
-	options_button.icon = ConfigResolver.load_texture("res://assets/ui/icons/icon_options.png")
-	apply_button_style(profile_button, "", "res://assets/ui/buttons/button_primary_orange.png")
-	apply_button_style(options_button, "", "res://assets/ui/buttons/button_primary_orange.png")
+	build_top_right_widgets(header.get("top_right_widgets", {}))
+
+func build_top_right_widgets(widgets_config: Dictionary) -> void:
+	if not bool(widgets_config.get("enabled", true)):
+		coins_button.visible = false
+		profile_button.visible = false
+		options_button.visible = false
+		return
+
+	for widget in widgets_config.get("items", []):
+		if typeof(widget) != TYPE_DICTIONARY:
+			continue
+		var data := widget as Dictionary
+		var widget_id := String(data.get("id", ""))
+		if widget_id == "coins":
+			coins_button.text = String(ConfigResolver.get_save_value(save_data, String(data.get("text_source", "")).replace("save.", ""), data.get("fallback_text", "0")))
+			var coin_icon_path := String(data.get("icon_path", ""))
+			coins_button.icon = load(coin_icon_path) as Texture2D if ResourceLoader.exists(coin_icon_path) else null
+			apply_button_style(coins_button, String(data.get("button_texture", "")), "res://assets/ui/panels/panel_stats_premium.png")
+		elif widget_id == "profile":
+			var fallback_icon := String(data.get("fallback_icon_path", "res://assets/ui/icons/icon_profile.png"))
+			profile_button.expand_icon = true
+			profile_button.icon = ConfigResolver.load_texture(get_character_reaction_path("badge"), fallback_icon)
+			apply_button_style(profile_button, String(data.get("button_texture", "")), "res://assets/ui/buttons/button_primary_orange.png")
+		elif widget_id == "settings":
+			options_button.icon = ConfigResolver.load_texture(String(data.get("icon_path", "")), "res://assets/ui/icons/icon_options.png")
+			apply_button_style(options_button, String(data.get("button_texture", "")), "res://assets/ui/buttons/button_primary_orange.png")
 
 func setup_character_guide() -> void:
 	var guide_config: Dictionary = menu_config.get("character_guide", {})
@@ -169,19 +227,13 @@ func setup_character_guide() -> void:
 
 func setup_catalog_panel() -> void:
 	var catalog: Dictionary = menu_config.get("catalog_panel", {})
-	var style_config: Dictionary = catalog.get("style", {})
-	var panel := $SafeArea/RootLayout/ContentRow/GridPanel as PanelContainer
-	panel.add_theme_stylebox_override("panel", make_panel_style(style_config))
-	header_panel.add_theme_stylebox_override("panel", make_panel_style({
-		"background_color": "#FFF4C8",
-		"background_alpha": 0.82,
-		"border_color": "#F8B62D",
-		"border_width": 3,
-		"corner_radius": 24,
-		"shadow_color": "#000000",
-		"shadow_alpha": 0.16,
-		"shadow_size": 8
-	}))
+	if not bool(catalog.get("enabled", true)):
+		var empty_style := StyleBoxEmpty.new()
+		grid_panel.add_theme_stylebox_override("panel", empty_style)
+	else:
+		var style_config: Dictionary = catalog.get("style", {})
+		grid_panel.add_theme_stylebox_override("panel", make_panel_style(style_config))
+	header_panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	feedback_panel.add_theme_stylebox_override("panel", make_panel_style({
 		"background_color": "#FFF4C8",
 		"background_alpha": 0.96,
@@ -389,6 +441,10 @@ func is_unlock_rule_completed(rule_id: String) -> bool:
 	return ConfigResolver.is_unlock_rule_completed(rule_id, unlock_rules, save_data)
 
 func make_panel_style(config: Dictionary) -> StyleBoxFlat:
+	if String(config.get("type", "")) == "transparent":
+		var transparent_style := StyleBoxFlat.new()
+		transparent_style.bg_color = Color(1, 1, 1, 0)
+		return transparent_style
 	var bg_color := ConfigResolver.color_from_hex(String(config.get("background_color", "#FFF4C8")), float(config.get("background_alpha", 0.88)))
 	var border_color := ConfigResolver.color_from_hex(String(config.get("border_color", "#17A8C8")), 1.0)
 	var style := StyleBoxFlat.new()
@@ -409,14 +465,43 @@ func make_panel_style(config: Dictionary) -> StyleBoxFlat:
 	style.shadow_offset = Vector2(0, 5)
 	return style
 
+func apply_panel_texture_or_style(panel: PanelContainer, texture_path: String, fallback_path: String, fallback_style: Dictionary) -> void:
+	var valid_texture := ""
+	if not texture_path.is_empty() and ResourceLoader.exists(texture_path):
+		valid_texture = texture_path
+	elif not fallback_path.is_empty() and ResourceLoader.exists(fallback_path):
+		valid_texture = fallback_path
+	if not valid_texture.is_empty():
+		var texture_style := StyleBoxTexture.new()
+		texture_style.texture = load(valid_texture) as Texture2D
+		texture_style.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+		texture_style.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+		panel.add_theme_stylebox_override("panel", texture_style)
+		return
+	panel.add_theme_stylebox_override("panel", make_panel_style(fallback_style))
+
 func apply_button_style(button: Button, texture_path: String, fallback_path: String = "") -> void:
-	var _texture_path := get_valid_texture_path(texture_path, fallback_path)
+	var valid_texture := ""
+	if not texture_path.is_empty() and ResourceLoader.exists(texture_path):
+		valid_texture = texture_path
+	elif not fallback_path.is_empty() and ResourceLoader.exists(fallback_path):
+		valid_texture = fallback_path
 	var is_arrow := button == previous_button or button == next_button
+	if not valid_texture.is_empty():
+		var texture_style := StyleBoxTexture.new()
+		texture_style.texture = load(valid_texture) as Texture2D
+		texture_style.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+		texture_style.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+		button.add_theme_stylebox_override("normal", texture_style)
+		button.add_theme_stylebox_override("hover", texture_style)
+		button.add_theme_stylebox_override("pressed", texture_style)
+		button.add_theme_stylebox_override("disabled", texture_style)
 	var normal := make_button_style(false, is_arrow, 1.0, 0)
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", make_button_style(false, is_arrow, 1.05, -1))
-	button.add_theme_stylebox_override("pressed", make_button_style(false, is_arrow, 0.92, 1))
-	button.add_theme_stylebox_override("disabled", make_button_style(true, is_arrow, 1.0, 0))
+	if valid_texture.is_empty():
+		button.add_theme_stylebox_override("normal", normal)
+		button.add_theme_stylebox_override("hover", make_button_style(false, is_arrow, 1.05, -1))
+		button.add_theme_stylebox_override("pressed", make_button_style(false, is_arrow, 0.92, 1))
+		button.add_theme_stylebox_override("disabled", make_button_style(true, is_arrow, 1.0, 0))
 	button.add_theme_font_size_override("font_size", 22)
 	button.add_theme_color_override("font_color", Color.WHITE)
 	button.add_theme_color_override("font_disabled_color", Color(0.86, 0.90, 0.94, 1.0))

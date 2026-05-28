@@ -11,6 +11,7 @@ const FALLBACK_PUZZLE: Texture2D = preload("res://assets/ui/icons/icon_options.p
 const FALLBACK_COMING_SOON: Texture2D = preload("res://assets/ui/cards/card_back_default.png")
 
 @onready var thumbnail_rect: TextureRect = %ThumbnailRect
+@onready var title_ribbon: PanelContainer = %TitleRibbon
 @onready var title_label: Label = %TitleLabel
 @onready var subtitle_label: Label = %SubtitleLabel
 @onready var status_label: Label = %StatusLabel
@@ -49,8 +50,10 @@ func apply_status_style(current_status: String) -> void:
 	subtitle_label.add_theme_color_override("font_color", ConfigResolver.color_from_hex(String(style_config.get("subtitle_color", "#24466D"))))
 	status_label.add_theme_color_override("font_color", ConfigResolver.color_from_hex(String(style_config.get("status_color", "#9A5A12"))))
 	thumbnail_rect.modulate = Color(1.0, 1.0, 1.0, float(style_config.get("thumbnail_alpha", 1.0)))
+	status_label.visible = current_status == "locked"
 
 	apply_panel_style(style_config)
+	apply_title_ribbon_style(style_config.get("title_ribbon", {}))
 	apply_button_style(button_config)
 
 func apply_thumbnail(path: String, fallback: String = "") -> void:
@@ -84,10 +87,41 @@ func apply_panel_style(style_data: Dictionary) -> void:
 	var fallback_style: Dictionary = style_data.get("fallback_style", {})
 	add_theme_stylebox_override("panel", make_card_style(fallback_style))
 
+func apply_title_ribbon_style(ribbon_data: Dictionary) -> void:
+	title_ribbon.visible = bool(ribbon_data.get("enabled", true))
+	if not title_ribbon.visible:
+		return
+
+	var texture_path := String(ribbon_data.get("texture_path", ""))
+	if not texture_path.is_empty() and ResourceLoader.exists(texture_path):
+		var texture_style := StyleBoxTexture.new()
+		texture_style.texture = load(texture_path) as Texture2D
+		texture_style.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+		texture_style.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+		title_ribbon.add_theme_stylebox_override("panel", texture_style)
+		return
+
+	var ribbon_color := ConfigResolver.color_from_hex(String(ribbon_data.get("fallback_color", "#146CB5")))
+	var ribbon_style := StyleBoxFlat.new()
+	ribbon_style.bg_color = ribbon_color
+	ribbon_style.border_color = Color(1.0, 0.75, 0.22, 0.88)
+	ribbon_style.border_width_left = 3
+	ribbon_style.border_width_top = 3
+	ribbon_style.border_width_right = 3
+	ribbon_style.border_width_bottom = 3
+	ribbon_style.corner_radius_top_left = 14
+	ribbon_style.corner_radius_top_right = 14
+	ribbon_style.corner_radius_bottom_right = 8
+	ribbon_style.corner_radius_bottom_left = 8
+	ribbon_style.shadow_color = Color(0.07, 0.08, 0.10, 0.20)
+	ribbon_style.shadow_size = 4
+	ribbon_style.shadow_offset = Vector2(0, 2)
+	title_ribbon.add_theme_stylebox_override("panel", ribbon_style)
+
 func apply_button_style(button_data: Dictionary) -> void:
 	play_button.text = String(button_data.get("text", "Pronto"))
 	play_button.disabled = bool(button_data.get("disabled", status != "active"))
-	play_button.visible = true
+	play_button.visible = bool(button_data.get("visible", true))
 
 	var text_color := ConfigResolver.color_from_hex(String(button_data.get("text_color", "#FFFFFF")))
 	play_button.add_theme_color_override("font_color", text_color)
