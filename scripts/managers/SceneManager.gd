@@ -26,6 +26,14 @@ func go_to_game_scene() -> void:
 func go_to_memory_game() -> void:
 	change_scene(AppConstants.MEMORY_GAME_SCENE)
 
+# Abre el catalogo de minijuegos.
+func go_to_minigames_menu() -> void:
+	change_scene(AppConstants.MINIGAMES_MENU_SCENE)
+
+# Abre el placeholder del minijuego puzzle.
+func go_to_puzzle_game() -> void:
+	change_scene(AppConstants.PUZZLE_GAME_SCENE)
+
 # Reinicia la escena actual si existe una ruta registrada.
 func reload_current_scene() -> void:
 	if current_scene_path.is_empty():

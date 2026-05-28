@@ -1,0 +1,30 @@
+{
+  "background_pirate_kids": {
+    "base_positive": "2D premium kids mobile game background, pirate-themed, cheerful cartoon style, polished glossy game art, child-friendly, colorful, horizontal 16:9 composition, clean and uncluttered central area for UI cards, decorative and detailed sides, soft depth, playful environment, no characters, no text, no logo, no UI elements",
+    "base_negative": "realistic, photorealistic, dark, horror, scary, violent, gloomy, cluttered center, too many objects in the middle, large object blocking UI area, low quality, blurry, watermark, text, logo, distorted composition, messy layout, threatening pirates, skull gore, heavy weapons, grim atmosphere, characters, UI elements, unreadable text, random letters",
+    "recommended_width": 1920,
+    "recommended_height": 1080,
+    "notes": "Use for horizontal 16:9 backgrounds with clean center area."
+  },
+  "icon_pirate_kids": {
+    "base_positive": "premium kids mobile game UI icon, cheerful pirate theme, rounded shapes, glossy cartoon style, colorful, clean edges, high readability, isolated transparent background, centered composition, no text, no logo",
+    "base_negative": "realistic, photorealistic, dark, horror, scary, violent, blurry, low quality, watermark, text, logo, distorted, messy, cluttered, cropped icon, unreadable text, random letters",
+    "recommended_width": 512,
+    "recommended_height": 512,
+    "notes": "Use for square icons and thumbnails. Generate on transparent or clean isolated background when the model supports it."
+  },
+  "button_pirate_kids": {
+    "base_positive": "premium kids mobile game UI button asset, cheerful pirate theme, rounded glossy button, colorful, clean edges, high readability, isolated transparent background, polished mobile game UI, no text, no logo",
+    "base_negative": "realistic, dark, horror, scary, violent, blurry, low quality, watermark, text, logo, distorted, messy, cluttered, unreadable text, random letters, harsh shadow",
+    "recommended_width": 512,
+    "recommended_height": 512,
+    "notes": "Use for buttons, arrows, pagination indicators and touch UI pieces."
+  },
+  "panel_pirate_kids": {
+    "base_positive": "premium kids mobile game UI panel asset, cheerful pirate theme, rounded rectangle, glossy cartoon style, parchment or wood material, clean center area, polished border, soft shadow, high readability, isolated transparent background, no text, no logo",
+    "base_negative": "realistic, dark, horror, scary, violent, blurry, low quality, watermark, text, logo, distorted, messy, cluttered, unreadable text, random letters, noisy center, harsh shadow",
+    "recommended_width": 768,
+    "recommended_height": 512,
+    "notes": "Use for cards, panels, frames and scalable UI containers."
+  }
+}

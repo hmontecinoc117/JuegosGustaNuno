@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://d3jafobskuw0o"]
+
+[ext_resource type="Script" path="res://scripts/ui/MiniGameCard.gd" id="1_card_script"]
+
+[node name="MiniGameCard" type="PanelContainer"]
+custom_minimum_size = Vector2(286, 236)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_card_script")
+
+[node name="CardMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="CardLayout" type="VBoxContainer" parent="CardMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ThumbnailRect" type="TextureRect" parent="CardMargin/CardLayout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 76)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="CardMargin/CardLayout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Juego"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+theme_override_font_sizes/font_size = 24
+
+[node name="SubtitleLabel" type="Label" parent="CardMargin/CardLayout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+text = "Descripcion"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 15
+
+[node name="StatusLabel" type="Label" parent="CardMargin/CardLayout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+text = "Pronto"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="ButtonSpacer" type="Control" parent="CardMargin/CardLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayButton" type="Button" parent="CardMargin/CardLayout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(156, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Jugar"

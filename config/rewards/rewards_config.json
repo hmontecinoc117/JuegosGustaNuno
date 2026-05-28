@@ -1,0 +1,55 @@
+{
+  "rewards_enabled": true,
+  "reward_types": [
+    "stars",
+    "coins",
+    "character_skin",
+    "background",
+    "badge"
+  ],
+  "daily_reward": {
+    "enabled": true,
+    "id": "daily_treasure",
+    "title": "Tesoro diario",
+    "icon": "res://assets/ui/icons/rewards/icon_daily_chest.png",
+    "reward_type": "coins",
+    "amount": 10,
+    "claim_animation": "chest_open"
+  },
+  "game_rewards": {
+    "memory_rewards": [
+      {
+        "id": "memory_three_stars_reward",
+        "condition": {
+          "type": "game_stars",
+          "game_id": "memory",
+          "min_stars": 3
+        },
+        "reward_type": "coins",
+        "amount": 25
+      }
+    ],
+    "puzzle_rewards": [
+      {
+        "id": "puzzle_complete_reward",
+        "condition": {
+          "type": "game_completed",
+          "game_id": "puzzle"
+        },
+        "reward_type": "coins",
+        "amount": 20
+      }
+    ],
+    "tracing_rewards": [
+      {
+        "id": "tracing_complete_reward",
+        "condition": {
+          "type": "game_completed",
+          "game_id": "tracing"
+        },
+        "reward_type": "character_skin",
+        "reward_id": "captain_gold"
+      }
+    ]
+  }
+}

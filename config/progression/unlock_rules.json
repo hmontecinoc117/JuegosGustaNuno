@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "unlock_tracing_after_memory_puzzle": {
+      "id": "unlock_tracing_after_memory_puzzle",
+      "type": "completed_games",
+      "games": ["memory", "puzzle"],
+      "description": "Desbloquea Trazado al completar Memorice y Puzzle"
+    },
+    "unlock_captain_gold_skin": {
+      "id": "unlock_captain_gold_skin",
+      "type": "stars_total",
+      "value": 50,
+      "description": "Desbloquea skin Capitan Dorado con 50 estrellas"
+    }
+  }
+}

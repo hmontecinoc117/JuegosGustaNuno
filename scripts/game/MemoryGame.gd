@@ -279,7 +279,7 @@ func _check_victory() -> void:
 
 # Vuelve al menu principal mediante GameManager.
 func _on_back_button_pressed() -> void:
-	GameManager.return_to_main_menu()
+	SceneManager.change_scene(AppConstants.SCENE_MINIGAMES_MENU)
 
 # Reinicia la escena actual mediante GameManager.
 func _on_restart_button_pressed() -> void:

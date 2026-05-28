@@ -15,7 +15,12 @@ func load_initial_state() -> void:
 
 # Inicia una partida desde el minijuego activo.
 func start_game() -> void:
-	start_memory_game()
+	open_minigames_menu()
+
+# Abre el catalogo de minijuegos desde el menu principal.
+func open_minigames_menu() -> void:
+	is_game_paused = false
+	SceneManager.go_to_minigames_menu()
 
 # Inicia el minijuego de memorice infantil.
 func start_memory_game() -> void:

@@ -1,0 +1,93 @@
+{
+  "catalog_id": "main_minigames_catalog",
+  "items_per_page_default": 6,
+  "games": [
+    {
+      "id": "memory",
+      "enabled": true,
+      "title": "Memorice",
+      "subtitle": "Encuentra las parejas",
+      "status": "active",
+      "scene_path": "res://scenes/game/MemoryGame.tscn",
+      "scene_constant": "SCENE_MEMORY_GAME",
+      "thumbnail": "res://assets/ui/icons/minigames/icon_minigame_memory.png",
+      "fallback_thumbnail": "res://assets/ui/cards/card_front_default.png",
+      "character_reaction_on_focus": "pointing",
+      "character_reaction_on_play": "celebrating",
+      "reward_group": "memory_rewards",
+      "unlock_rule_id": ""
+    },
+    {
+      "id": "puzzle",
+      "enabled": true,
+      "title": "Puzzle",
+      "subtitle": "Arma la imagen",
+      "status": "active",
+      "scene_path": "res://scenes/game/PuzzleGame.tscn",
+      "scene_constant": "SCENE_PUZZLE_GAME",
+      "thumbnail": "res://assets/ui/icons/minigames/icon_minigame_puzzle.png",
+      "fallback_thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "character_reaction_on_focus": "pointing",
+      "character_reaction_on_play": "celebrating",
+      "reward_group": "puzzle_rewards",
+      "unlock_rule_id": ""
+    },
+    {
+      "id": "tracing",
+      "enabled": true,
+      "title": "Trazado",
+      "subtitle": "Dibuja formas",
+      "status": "locked",
+      "scene_path": "res://scenes/game/TracingGame.tscn",
+      "scene_constant": "SCENE_TRACING_GAME",
+      "thumbnail": "res://assets/ui/icons/minigames/icon_minigame_tracing.png",
+      "fallback_thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "character_reaction_on_focus": "holding_map",
+      "character_reaction_on_play": "celebrating",
+      "reward_group": "tracing_rewards",
+      "unlock_rule_id": "unlock_tracing_after_memory_puzzle"
+    },
+    {
+      "id": "coming_soon_01",
+      "enabled": true,
+      "title": "Pronto",
+      "subtitle": "Nueva aventura",
+      "status": "coming_soon",
+      "scene_path": "",
+      "thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "fallback_thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "character_reaction_on_focus": "holding_map",
+      "character_reaction_on_press": "holding_map",
+      "reward_group": "",
+      "unlock_rule_id": ""
+    },
+    {
+      "id": "coming_soon_02",
+      "enabled": true,
+      "title": "Pronto",
+      "subtitle": "Nueva aventura",
+      "status": "coming_soon",
+      "scene_path": "",
+      "thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "fallback_thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "character_reaction_on_focus": "holding_map",
+      "character_reaction_on_press": "holding_map",
+      "reward_group": "",
+      "unlock_rule_id": ""
+    },
+    {
+      "id": "coming_soon_03",
+      "enabled": true,
+      "title": "Pronto",
+      "subtitle": "Nueva aventura",
+      "status": "coming_soon",
+      "scene_path": "",
+      "thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "fallback_thumbnail": "res://assets/ui/icons/minigames/icon_minigame_coming_soon.png",
+      "character_reaction_on_focus": "holding_map",
+      "character_reaction_on_press": "holding_map",
+      "reward_group": "",
+      "unlock_rule_id": ""
+    }
+  ]
+}

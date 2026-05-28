@@ -1,0 +1,340 @@
+{
+  "scene_id": "minigames_menu",
+  "scene_name": "MiniGamesMenu",
+  "scene_path": "res://scenes/ui/MiniGamesMenu.tscn",
+  "screen": {
+    "orientation": "landscape",
+    "target_ratio": "16:9",
+    "target_width": 1920,
+    "target_height": 1080,
+    "safe_margin_top": 24,
+    "safe_margin_bottom": 24,
+    "safe_margin_left": 32,
+    "safe_margin_right": 32
+  },
+  "data_sources": {
+    "games_catalog": "res://config/game/minigames_catalog.json",
+    "character_config": "res://config/characters/pirate_guide_config.json",
+    "rewards_config": "res://config/rewards/rewards_config.json",
+    "unlock_rules": "res://config/progression/unlock_rules.json"
+  },
+  "background": {
+    "type": "texture",
+    "texture_path": "res://assets/backgrounds/minigames_menu/bg_minigames_menu_pirate_port.png",
+    "fallback_texture_path": "res://assets/backgrounds/bg_main_menu_pirate_hub.png",
+    "stretch_mode": "keep_aspect_covered",
+    "overlay": {
+      "enabled": false,
+      "color": "#FFFFFF",
+      "alpha": 0.0
+    }
+  },
+  "header": {
+    "enabled": true,
+    "height": 190,
+    "layout": "top_bar_centered_title",
+    "back_button": {
+      "enabled": true,
+      "text": "Volver",
+      "icon_path": "res://assets/ui/icons/arrow_left_blue.png",
+      "button_texture": "res://assets/ui/buttons/button_back_pirate.png",
+      "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
+      "position": "top_left",
+      "size": {
+        "width": 240,
+        "height": 82
+      },
+      "action": {
+        "type": "change_scene",
+        "scene_path": "res://scenes/ui/MainMenu.tscn",
+        "constant": "SCENE_MAIN_MENU"
+      }
+    },
+    "logo": {
+      "enabled": true,
+      "texture_path": "res://assets/ui/logo/logo_gustanuno_main.png",
+      "position": "top_center",
+      "size": {
+        "width": 420,
+        "height": 130
+      }
+    },
+    "title": {
+      "enabled": true,
+      "text": "Minijuegos",
+      "font_size": 64,
+      "color": "#FFFFFF",
+      "outline_color": "#1F4B82",
+      "outline_size": 8,
+      "position": "center_below_logo"
+    },
+    "subtitle": {
+      "enabled": true,
+      "text": "Elige un juego",
+      "font_size": 30,
+      "color": "#4A2F1B",
+      "outline_color": "#FFF1C2",
+      "outline_size": 3
+    },
+    "top_right_widgets": {
+      "enabled": true,
+      "items": [
+        {
+          "id": "coins",
+          "type": "counter",
+          "icon_path": "res://assets/ui/icons/icon_star_coin.png",
+          "text_source": "save.player_coins",
+          "fallback_text": "0",
+          "button_texture": "res://assets/ui/panels/panel_stats_premium.png",
+          "position_order": 1
+        },
+        {
+          "id": "profile",
+          "type": "icon_button",
+          "icon_source": "character.selected_skin.badge",
+          "fallback_icon_path": "res://assets/sprites/characters/pirate_guide/pirate_badge.png",
+          "button_texture": "res://assets/ui/buttons/button_round_blue.png",
+          "position_order": 2
+        },
+        {
+          "id": "settings",
+          "type": "icon_button",
+          "icon_path": "res://assets/ui/icons/icon_settings.png",
+          "button_texture": "res://assets/ui/buttons/button_round_blue.png",
+          "position_order": 3
+        }
+      ]
+    }
+  },
+  "character_guide": {
+    "enabled": true,
+    "character_id": "pirate_guide",
+    "default_skin": "classic",
+    "default_reaction": "welcome",
+    "selected_skin_source": "save.selected_character_skin",
+    "position": "bottom_left",
+    "scale": 0.78,
+    "z_index": 20,
+    "avoid_grid_overlap": true,
+    "behavior": {
+      "on_scene_open": {
+        "reaction": "welcome",
+        "animation": "soft_bounce"
+      },
+      "on_active_game_hover": {
+        "reaction": "pointing",
+        "animation": "small_wave"
+      },
+      "on_coming_soon_pressed": {
+        "reaction": "holding_map",
+        "message": "Muy pronto",
+        "animation": "shake_head_soft"
+      },
+      "on_locked_pressed": {
+        "reaction": "holding_map",
+        "message": "Aun bloqueado",
+        "animation": "shake_head_soft"
+      },
+      "on_game_selected": {
+        "reaction": "celebrating",
+        "animation": "happy_jump"
+      },
+      "on_reward_claimed": {
+        "reaction": "celebrating",
+        "animation": "happy_jump"
+      }
+    }
+  },
+  "catalog_panel": {
+    "enabled": true,
+    "position": "center",
+    "size": {
+      "width": 1120,
+      "height": 620
+    },
+    "style": {
+      "type": "stylebox",
+      "background_color": "#FFF4C8",
+      "background_alpha": 0.88,
+      "border_color": "#17A8C8",
+      "border_width": 6,
+      "corner_radius": 32,
+      "shadow_color": "#000000",
+      "shadow_alpha": 0.22,
+      "shadow_size": 16
+    }
+  },
+  "grid": {
+    "columns": 3,
+    "rows": 2,
+    "items_per_page": 6,
+    "horizontal_gap": 28,
+    "vertical_gap": 24,
+    "card_size": {
+      "width": 300,
+      "height": 230
+    },
+    "padding": {
+      "top": 28,
+      "bottom": 24,
+      "left": 34,
+      "right": 34
+    }
+  },
+  "pagination": {
+    "enabled": true,
+    "position": "bottom_center",
+    "show_page_text": true,
+    "page_text_format": "{current} / {total}",
+    "dot_active_texture": "res://assets/ui/icons/pagination_dot_active.png",
+    "dot_inactive_texture": "res://assets/ui/icons/pagination_dot_inactive.png",
+    "dot_size": {
+      "width": 24,
+      "height": 24
+    },
+    "dot_gap": 10
+  },
+  "navigation_arrows": {
+    "enabled": true,
+    "left": {
+      "texture_path": "res://assets/ui/icons/arrow_left_blue.png",
+      "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
+      "position": "left_center_of_catalog",
+      "size": {
+        "width": 78,
+        "height": 78
+      }
+    },
+    "right": {
+      "texture_path": "res://assets/ui/icons/arrow_right_blue.png",
+      "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
+      "position": "right_center_of_catalog",
+      "size": {
+        "width": 78,
+        "height": 78
+      }
+    },
+    "disabled_alpha": 0.35
+  },
+  "card_style": {
+    "active": {
+      "panel_texture": "res://assets/ui/panels/minigames/panel_card_minigame.png",
+      "fallback_style": {
+        "background_color": "#FFF1C2",
+        "border_color": "#F8B62D",
+        "border_width": 5,
+        "corner_radius": 26,
+        "shadow_alpha": 0.24,
+        "shadow_size": 12
+      },
+      "title_color": "#24466D",
+      "subtitle_color": "#24466D",
+      "status_color": "#05843A",
+      "thumbnail_alpha": 1.0,
+      "button": {
+        "text": "Jugar",
+        "texture": "res://assets/ui/buttons/button_secondary_green.png",
+        "fallback_color": "#20B957",
+        "text_color": "#FFFFFF",
+        "disabled": false
+      }
+    },
+    "coming_soon": {
+      "panel_texture": "res://assets/ui/panels/minigames/panel_card_minigame_disabled.png",
+      "fallback_style": {
+        "background_color": "#DDD4B8",
+        "border_color": "#B89A58",
+        "border_width": 4,
+        "corner_radius": 26,
+        "shadow_alpha": 0.14,
+        "shadow_size": 8
+      },
+      "title_color": "#24466D",
+      "subtitle_color": "#24466D",
+      "status_color": "#9A5A12",
+      "thumbnail_alpha": 0.55,
+      "button": {
+        "text": "Pronto",
+        "texture": "res://assets/ui/buttons/button_disabled_gray.png",
+        "fallback_color": "#8E9AA3",
+        "text_color": "#FFFFFF",
+        "disabled": true
+      }
+    },
+    "locked": {
+      "panel_texture": "res://assets/ui/panels/minigames/panel_card_minigame_disabled.png",
+      "fallback_style": {
+        "background_color": "#CFC7B2",
+        "border_color": "#8A7A5C",
+        "border_width": 4,
+        "corner_radius": 26,
+        "shadow_alpha": 0.12,
+        "shadow_size": 8
+      },
+      "title_color": "#34495E",
+      "subtitle_color": "#5D6D7E",
+      "status_color": "#7B2E2E",
+      "thumbnail_alpha": 0.45,
+      "button": {
+        "text": "Bloqueado",
+        "texture": "res://assets/ui/buttons/button_disabled_gray.png",
+        "fallback_color": "#7F8C8D",
+        "text_color": "#FFFFFF",
+        "disabled": true
+      }
+    }
+  },
+  "scene_navigation": {
+    "open_game": {
+      "method": "SceneManager.change_scene",
+      "use_app_constants": true
+    },
+    "return_from_games": {
+      "target_scene_path": "res://scenes/ui/MiniGamesMenu.tscn",
+      "target_constant": "SCENE_MINIGAMES_MENU",
+      "required_for": [
+        "MemoryGame",
+        "PuzzleGame"
+      ]
+    },
+    "back_from_menu": {
+      "target_scene_path": "res://scenes/ui/MainMenu.tscn",
+      "target_constant": "SCENE_MAIN_MENU"
+    }
+  },
+  "feedback": {
+    "coming_soon": {
+      "message": "Muy pronto",
+      "duration": 1.2,
+      "animation": "soft_shake",
+      "character_reaction": "holding_map"
+    },
+    "locked": {
+      "message": "Aun bloqueado",
+      "duration": 1.2,
+      "animation": "soft_shake",
+      "character_reaction": "holding_map"
+    },
+    "card_focus": {
+      "animation": "scale_up_soft",
+      "scale": 1.04,
+      "duration": 0.12
+    },
+    "card_unfocus": {
+      "animation": "scale_down_soft",
+      "scale": 1.0,
+      "duration": 0.12
+    },
+    "play_pressed": {
+      "animation": "button_pop",
+      "character_reaction": "celebrating"
+    }
+  },
+  "audio": {
+    "enabled": true,
+    "on_button_pressed": "res://assets/audio/sfx/button_click.ogg",
+    "on_card_focus": "res://assets/audio/sfx/card_hover.ogg",
+    "on_coming_soon": "res://assets/audio/sfx/soft_error.ogg",
+    "fallback_if_missing": true
+  }
+}

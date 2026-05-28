@@ -1,0 +1,45 @@
+{
+  "character_id": "pirate_guide",
+  "display_name": "Pirata Guia",
+  "default_skin": "classic",
+  "default_reaction": "welcome",
+  "skins": {
+    "classic": {
+      "id": "classic",
+      "name": "Pirata Clasico",
+      "unlocked": true,
+      "unlock_rule_id": "",
+      "badge": "res://assets/sprites/characters/pirate_guide/pirate_badge.png",
+      "reactions": {
+        "welcome": "res://assets/sprites/characters/pirate_guide/pirate_welcome.png",
+        "pointing": "res://assets/sprites/characters/pirate_guide/pirate_pointing.png",
+        "idle": "res://assets/sprites/characters/pirate_guide/pirate_idle.png",
+        "celebrating": "res://assets/sprites/characters/pirate_guide/pirate_celebrating.png",
+        "holding_map": "res://assets/sprites/characters/pirate_guide/pirate_holdingmap.png",
+        "badge": "res://assets/sprites/characters/pirate_guide/pirate_badge.png"
+      }
+    },
+    "captain_gold": {
+      "id": "captain_gold",
+      "name": "Capitan Dorado",
+      "unlocked": false,
+      "unlock_rule_id": "unlock_captain_gold_skin",
+      "badge": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_badge.png",
+      "reactions": {
+        "welcome": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_welcome.png",
+        "pointing": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_pointing.png",
+        "idle": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_idle.png",
+        "celebrating": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_celebrating.png",
+        "holding_map": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_holdingmap.png",
+        "badge": "res://assets/sprites/characters/pirate_guide/captain_gold/pirate_badge.png"
+      },
+      "fallback_skin": "classic"
+    }
+  },
+  "reaction_fallbacks": {
+    "welcome": "idle",
+    "pointing": "idle",
+    "celebrating": "welcome",
+    "holding_map": "idle"
+  }
+}

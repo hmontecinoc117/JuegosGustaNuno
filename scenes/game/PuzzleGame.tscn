@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://fei75radliyy"]
+
+[ext_resource type="Script" path="res://scripts/game/PuzzleGame.gd" id="1_puzzle_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(1, 0.96, 0.78, 0.95)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.96, 0.7, 0.18, 0.95)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+shadow_color = Color(0.08, 0.12, 0.16, 0.22)
+shadow_size = 14
+shadow_offset = Vector2(0, 6)
+
+[node name="PuzzleGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_puzzle_script")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(620, 360)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 28
+
+[node name="Layout" type="VBoxContainer" parent="Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/Margin/Layout"]
+layout_mode = 2
+text = "Puzzle"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.02, 0.44, 0.5, 1)
+theme_override_font_sizes/font_size = 54
+
+[node name="HintLabel" type="Label" parent="Center/Panel/Margin/Layout"]
+layout_mode = 2
+text = "Minijuego en construccion"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.22, 0.32, 0.44, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="BackButton" type="Button" parent="Center/Panel/Margin/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Volver"
