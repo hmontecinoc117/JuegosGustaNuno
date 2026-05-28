@@ -42,16 +42,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_bottom = 10
 
 [node name="RootLayout" type="VBoxContainer" parent="SafeArea"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="HeaderPanel" type="PanelContainer" parent="SafeArea/RootLayout"]
-custom_minimum_size = Vector2(0, 210)
+custom_minimum_size = Vector2(0, 176)
 layout_mode = 2
 
 [node name="HeaderCanvas" type="Control" parent="SafeArea/RootLayout/HeaderPanel"]
@@ -60,33 +60,33 @@ mouse_filter = 2
 
 [node name="BackButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 90)
+custom_minimum_size = Vector2(190, 66)
 layout_mode = 1
 anchors_preset = -1
 offset_left = 0.0
-offset_top = 6.0
-offset_right = 250.0
-offset_bottom = 96.0
+offset_top = 4.0
+offset_right = 190.0
+offset_bottom = 70.0
 focus_mode = 0
 text = "Volver"
 
 [node name="CenterTitle" type="VBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas"]
-custom_minimum_size = Vector2(800, 200)
+custom_minimum_size = Vector2(660, 170)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -400.0
+offset_left = -330.0
 offset_top = 0.0
-offset_right = 400.0
-offset_bottom = 200.0
+offset_right = 330.0
+offset_bottom = 170.0
 grow_horizontal = 2
-theme_override_constants/separation = -5
+theme_override_constants/separation = -3
 alignment = 1
 
 [node name="LogoRect" type="TextureRect" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(430, 96)
+custom_minimum_size = Vector2(360, 76)
 layout_mode = 2
 size_flags_horizontal = 4
 expand_mode = 1
@@ -94,7 +94,7 @@ stretch_mode = 5
 
 [node name="TitleBoard" type="PanelContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(760, 80)
+custom_minimum_size = Vector2(620, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -108,11 +108,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.06, 0.16, 0.28, 0.48)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 46
 
 [node name="SubtitlePanel" type="PanelContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/CenterTitle"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(340, 38)
+custom_minimum_size = Vector2(280, 34)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -123,59 +123,59 @@ text = "Elige un juego"
 horizontal_alignment = 1
 vertical_alignment = 1
 theme_override_colors/font_color = Color(0.29, 0.18, 0.11, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 22
 
 [node name="HeaderActions" type="HBoxContainer" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(314, 74)
+custom_minimum_size = Vector2(284, 62)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -314.0
-offset_top = 8.0
+offset_left = -284.0
+offset_top = 4.0
 offset_right = 0.0
-offset_bottom = 82.0
+offset_bottom = 66.0
 grow_horizontal = 0
 theme_override_constants/separation = 10
 alignment = 2
 
 [node name="CoinsButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/HeaderActions"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 62)
+custom_minimum_size = Vector2(138, 54)
 layout_mode = 2
 focus_mode = 0
 text = "1250"
 
 [node name="ProfileButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/HeaderActions"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(62, 62)
+custom_minimum_size = Vector2(54, 54)
 layout_mode = 2
 focus_mode = 0
 
 [node name="OptionsButton" type="Button" parent="SafeArea/RootLayout/HeaderPanel/HeaderCanvas/HeaderActions"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(62, 62)
+custom_minimum_size = Vector2(54, 54)
 layout_mode = 2
 focus_mode = 0
 
 [node name="ContentRow" type="HBoxContainer" parent="SafeArea/RootLayout"]
-custom_minimum_size = Vector2(0, 454)
+custom_minimum_size = Vector2(0, 386)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 18
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="PreviousButton" type="Button" parent="SafeArea/RootLayout/ContentRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(84, 84)
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 text = "<"
 
 [node name="GridPanel" type="PanelContainer" parent="SafeArea/RootLayout/ContentRow"]
-custom_minimum_size = Vector2(1066, 438)
+custom_minimum_size = Vector2(966, 382)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -193,19 +193,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
-theme_override_constants/h_separation = 22
-theme_override_constants/v_separation = 18
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 14
 
 [node name="NextButton" type="Button" parent="SafeArea/RootLayout/ContentRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(84, 84)
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 text = ">"
 
 [node name="Footer" type="HBoxContainer" parent="SafeArea/RootLayout"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
@@ -235,10 +235,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 28.0
-offset_top = -245.0
-offset_right = 210.0
-offset_bottom = -18.0
+offset_left = 38.0
+offset_top = -282.0
+offset_right = 258.0
+offset_bottom = -16.0
 grow_vertical = 0
 mouse_filter = 2
 

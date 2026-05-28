@@ -7,8 +7,8 @@
     "target_ratio": "16:9",
     "target_width": 1920,
     "target_height": 1080,
-    "safe_margin_top": 24,
-    "safe_margin_bottom": 24,
+    "safe_margin_top": 10,
+    "safe_margin_bottom": 10,
     "safe_margin_left": 32,
     "safe_margin_right": 32
   },
@@ -20,7 +20,7 @@
   },
   "background": {
     "type": "texture",
-    "texture_path": "res://assets/backgrounds/minigames_menu/bg_minigames_menu_pirate_port.png",
+    "texture_path": "res://assets/backgrounds/bg_main_menu_pirate_hub.png",
     "fallback_texture_path": "res://assets/backgrounds/bg_main_menu_pirate_hub.png",
     "stretch_mode": "keep_aspect_covered",
     "overlay": {
@@ -31,7 +31,7 @@
   },
   "header": {
     "enabled": true,
-    "height": 210,
+    "height": 176,
     "back_button": {
       "enabled": true,
       "text": "Volver",
@@ -40,8 +40,8 @@
       "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
       "position": "top_left",
       "size": {
-        "width": 250,
-        "height": 90
+        "width": 190,
+        "height": 66
       },
       "action": {
         "type": "change_scene",
@@ -54,23 +54,23 @@
       "texture_path": "res://assets/ui/logo/logo_gustanuno_main.png",
       "position": "top_center",
       "size": {
-        "width": 430,
-        "height": 130
+        "width": 360,
+        "height": 86
       }
     },
     "title_board": {
       "enabled": true,
-      "texture_path": "res://assets/ui/panels/panel_logo.png",
-      "fallback_texture": "res://assets/ui/panels/panel_board_premium.png",
+      "texture_path": "",
+      "fallback_texture": "",
       "size": {
-        "width": 760,
-        "height": 110
+        "width": 620,
+        "height": 70
       }
     },
     "title": {
       "enabled": true,
       "text": "Minijuegos",
-      "font_size": 66,
+      "font_size": 46,
       "color": "#FFFFFF",
       "outline_color": "#1F4B82",
       "outline_size": 8
@@ -78,7 +78,7 @@
     "subtitle": {
       "enabled": true,
       "text": "Elige un juego",
-      "font_size": 28,
+      "font_size": 22,
       "color": "#4A2F1B",
       "outline_color": "#FFF1C2",
       "outline_size": 3,
@@ -121,7 +121,7 @@
     "default_reaction": "welcome",
     "selected_skin_source": "save.selected_character_skin",
     "position": "bottom_left",
-    "scale": 0.78,
+      "scale": 1.0,
     "z_index": 20,
     "avoid_grid_overlap": true,
     "behavior": {
@@ -164,11 +164,11 @@
     "columns": 3,
     "rows": 2,
     "items_per_page": 6,
-    "horizontal_gap": 22,
-    "vertical_gap": 18,
+    "horizontal_gap": 18,
+    "vertical_gap": 14,
     "card_size": {
-      "width": 330,
-      "height": 210
+      "width": 310,
+      "height": 184
     },
     "position": {
       "x": 430,
@@ -201,8 +201,8 @@
       "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
       "position": "left_center_of_grid",
       "size": {
-        "width": 84,
-        "height": 84
+        "width": 72,
+        "height": 72
       }
     },
     "right": {
@@ -210,8 +210,8 @@
       "fallback_texture": "res://assets/ui/buttons/button_secondary_blue.png",
       "position": "right_center_of_grid",
       "size": {
-        "width": 84,
-        "height": 84
+        "width": 72,
+        "height": 72
       }
     },
     "disabled_alpha": 0.35

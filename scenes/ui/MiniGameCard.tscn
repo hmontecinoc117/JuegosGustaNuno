@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/MiniGameCard.gd" id="1_card_script"]
 
 [node name="MiniGameCard" type="PanelContainer"]
-custom_minimum_size = Vector2(330, 210)
+custom_minimum_size = Vector2(310, 184)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
@@ -11,20 +11,20 @@ script = ExtResource("1_card_script")
 
 [node name="CardMargin" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 8
 
 [node name="CardLayout" type="VBoxContainer" parent="CardMargin"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 4
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="TitleRibbon" type="PanelContainer" parent="CardMargin/CardLayout"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(248, 40)
+custom_minimum_size = Vector2(236, 34)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -38,11 +38,11 @@ clip_text = true
 theme_override_colors/font_shadow_color = Color(0.08, 0.12, 0.16, 0.55)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 22
 
 [node name="ThumbnailRect" type="TextureRect" parent="CardMargin/CardLayout"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(132, 86)
+custom_minimum_size = Vector2(148, 76)
 layout_mode = 2
 size_flags_horizontal = 4
 expand_mode = 1
@@ -50,13 +50,13 @@ stretch_mode = 5
 
 [node name="SubtitleLabel" type="Label" parent="CardMargin/CardLayout"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 22)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 text = "Descripcion"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 13
 
 [node name="StatusLabel" type="Label" parent="CardMargin/CardLayout"]
 unique_name_in_owner = true
@@ -73,7 +73,7 @@ size_flags_vertical = 3
 
 [node name="PlayButton" type="Button" parent="CardMargin/CardLayout"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(170, 46)
+custom_minimum_size = Vector2(160, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
